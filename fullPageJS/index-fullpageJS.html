@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>fullPage.js prototype</title>
+
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+
+	<style>
+		#section1 {
+			background-color: blue;
+		}
+		#section2 {
+			background-color: red;
+		}
+		#section3 {
+			background-color: green;
+		}
+	</style>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="jquery.fullPage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage']
+			});
+
+		});
+	</script>
+
+</head>
+<body>
+
+<div id="fullpage">
+	<div class="section " id="section0">
+		<h1>fullPage.js example</h1>
+	</div>
+	<div class="section" id="section1">
+		<h1>another section</h1>
+	</div>
+	<div class="section" id="section2">
+		<h1>and another section</h1>
+	</div>
+	<div class="section" id="section3">
+		<h1>last section</h1>
+	</div>
+</div>
+
+</body>
+</html>
