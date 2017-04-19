@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jquery smooth scrolling prototype</title>
+
+	<style>
+	  .smooth {
+			height: 500px;
+			line-height: 500px;
+		}
+		#section1 {
+			background-color: grey;
+		}
+		#section2 {
+			background-color: blue;
+		}
+		#section3 {
+			background-color: red;
+		}
+		#section4 {
+			background-color: green;
+		}
+		#menu li {
+			display:inline-block;
+			margin: 10px;
+			color: #000;
+			background:#fff;
+			background: rgba(255,255,255, 0.5);
+			-webkit-border-radius: 10px;
+		            border-radius: 10px;
+		}
+		#menu li a{
+			text-decoration:none;
+			color: #000;
+		}
+		#menu li:hover{
+			background: rgba(255,255,255, 0.8);
+		}
+		#menu li a{
+			padding: 9px 18px;
+			display:block;
+		}
+		#menu{
+			position:fixed;
+			top:0;
+			left:0;
+			height: 40px;
+			z-index: 70;
+			width: 100%;
+			padding: 0;
+			margin:0;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://github.com/kswedberg/jquery-smooth-scroll/blob/master/jquery.smooth-scroll.min.js"></script>
+	<script>
+	$('.smooth').on('click', function() {
+	    $.smoothScroll({
+	        scrollElement: $('body'),
+	        scrollTarget: '#' + this.id
+	    });
+
+	    return false;
+	});
+	</script>
+</head>
+
+<body>
+
+<div id="menu">
+   <ul>
+     <li><a href="#section0">First</a></li>
+     <li><a href="#section1">Second</a></li>
+     <li><a href="#section2">Third</a></li>
+     <li><a href="#section3">Fourth</a></li>
+   </ul>
+</div>
+
+<div class="smooth" id="section1">
+	<h1>fullPage.js example (1)</h1>
+</div>
+<div class="smooth" id="section2">
+	<h1>another section (2)</h1>
+</div>
+<div class="smooth" id="section3">
+	<h1>and another section (3)</h1>
+</div>
+<div class="smooth" id="section4">
+	<h1>last section (4)</h1>
+</div>
+
+</body>
+</html>
