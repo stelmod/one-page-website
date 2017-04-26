@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>scrollmagic.js prototype</title>
+
+	<style>
+    .section {
+      height: 500px;
+      line-height: 500px;
+    }
+		#section1 {
+			background-color: grey;
+      height: 500px;
+		}
+		#section2 {
+			background-color: blue;
+      height: 500px;
+		}
+		#section3 {
+			background-color: red;
+      height: 500px;
+		}
+		#section4 {
+			background-color: green;
+      height: 500px;
+		}
+		#menu li {
+			display:inline-block;
+			margin: 10px;
+			color: #000;
+			background:#fff;
+			background: rgba(255,255,255, 0.5);
+			-webkit-border-radius: 10px;
+		            border-radius: 10px;
+		}
+		#menu li.active{
+			background:#666;
+			background: rgba(0,0,0, 0.5);
+			color: #fff;
+		}
+		#menu li a{
+			text-decoration:none;
+			color: #000;
+		}
+		#menu li.active a:hover{
+			color: #000;
+		}
+		#menu li:hover{
+			background: rgba(255,255,255, 0.8);
+		}
+		#menu li a,
+		#menu li.active a{
+			padding: 9px 18px;
+			display:block;
+		}
+		#menu li.active a{
+			color: #fff;
+		}
+		#menu{
+			position:fixed;
+			top:0;
+			left:0;
+			height: 40px;
+			z-index: 70;
+			width: 100%;
+			padding: 0;
+			margin:0;
+		}
+	</style>
+</head>
+<body>
+
+
+<div id="fullpage">
+	<div class="section" id="section1">
+		<h1>fullPage.js example</h1>
+	</div>
+	<div class="section" id="section2">
+		<h1>another section</h1>
+	</div>
+	<div class="section" id="section3">
+		<h1>and another section</h1>
+	</div>
+	<div class="section" id="section4">
+		<h1>last section</h1>
+	</div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+
+<script>
+  $(function () { // wait for document ready
+    var controller = new ScrollMagic.Controller({
+      globalSceneOptions: {
+        triggerHook: 'onLeave'
+      }
+    });
+
+    var slides = document.querySelectorAll("div.section");
+    for (var i=0; i<slides.length; i++) {
+      new ScrollMagic.Scene({
+          triggerElement: slides[i]
+        })
+        .setPin(slides[i])
+        .addTo(controller);
+    }
+  });
+</script>
+</body>
+</html>
