@@ -71,27 +71,27 @@
 	</style>
 </head>
 <body>
-<header role="banner">
-  <nav role='navigation'>
-    <a href="#section1">Section 1</a>
-    <a href="#section2">Section 2</a>
-    <a href="#section3">Section 3</a>
-		<a href="#section4">Section 4</a>
-  </nav>
-</header>
+	<div id="menu">
+	   <ul>
+	     <li><a href="#section1">First</a></li>
+	     <li><a href="#section2">Second</a></li>
+	     <li><a href="#section3">Third</a></li>
+	     <li><a href="#section4">Fourth</a></li>
+	   </ul>
+	</div>
 
 <div id="fullpage">
 	<div class="section" id="section1">
-		<h1>scrollmagic.js example</h1>
+		<h1>scrollmagic.js example (1)</h1>
 	</div>
 	<div class="section" id="section2">
-		<h1>another section</h1>
+		<h1>another section (2)</h1>
 	</div>
 	<div class="section" id="section3">
-		<h1>and another section</h1>
+		<h1>and another section (3)</h1>
 	</div>
 	<div class="section" id="section4">
-		<h1>last section</h1>
+		<h1>last section (4)</h1>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -139,10 +139,11 @@
     for (var i=0; i<slides.length; i++) {
       new ScrollMagic.Scene({
           triggerElement: slides[i]
-        })
-        .setPin(slides[i])
-        .addTo(controller);
+      })
+      .setPin(slides[i])
+      .addTo(controller);
     }
+
   });
 </script>
 </body>
