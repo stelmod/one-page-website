@@ -71,7 +71,14 @@
 	</style>
 </head>
 <body>
-
+<header role="banner">
+  <nav role='navigation'>
+    <a href="#section1">Section 1</a>
+    <a href="#section2">Section 2</a>
+    <a href="#section3">Section 3</a>
+		<a href="#section4">Section 4</a>
+  </nav>
+</header>
 
 <div id="fullpage">
 	<div class="section" id="section1">
@@ -90,6 +97,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/ScrollToPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
 
 <script>
@@ -99,6 +107,33 @@
         triggerHook: 'onLeave'
       }
     });
+
+		controller.scrollTo(function(target) {
+			TweenMax.to(window, 0.5, {
+			  scrollTo : {
+			    y : target, // scroll position of the target along y axis
+			    autoKill : true // allows user to kill scroll action smoothly
+			  },
+			  ease : Cubic.easeInOut
+			});
+		});
+
+		$(document).on("click", "a[href^=#]", function(e) {
+		  var id = $(this).attr("href");
+
+		  if($(id).length > 0) {
+		    e.preventDefault();
+
+		    // trigger scroll
+		    controller.scrollTo(id);
+
+		    // If supported by the browser we can also update the URL
+		    if (window.history && window.history.pushState) {
+		      history.pushState("", document.title, id);
+		    }
+		  }
+
+		});
 
     var slides = document.querySelectorAll("div.section");
     for (var i=0; i<slides.length; i++) {
